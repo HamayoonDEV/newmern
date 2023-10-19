@@ -44,14 +44,17 @@ const commentController = {
 
     const { id } = req.params;
 
-    let comment;
     try {
-      comment = await Comment.findOne({ blogId: id }).populate("author");
+      const comments = await Comment.find({ blogId: id }).populate("author");
+      const commentArr = [];
+      for (let i = 0; i < comments.length; i++) {
+        const comment = comments[i];
+        commentArr.push(comment);
+      }
+      return res.status(200).json({ comments: commentArr });
     } catch (error) {
       return next(error);
     }
-    //sending response
-    res.status(200).json({ comment });
   },
 };
 

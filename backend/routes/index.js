@@ -14,7 +14,7 @@ router.get("/refresh", authController.refresh);
 
 //blogController endPoint
 router.post("/blog", auth, blogController.createBlog);
-router.get("/blog/all", auth, blogController.getAll);
+router.get("/blog/all", blogController.getAll);
 router.get("/blog/:id", auth, blogController.getBlogById);
 router.put("/blog/update", auth, blogController.update);
 router.delete("/blog/:id", auth, blogController.deleteBlog);

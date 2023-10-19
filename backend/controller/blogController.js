@@ -86,7 +86,7 @@ const blogController = {
     }
     const blogDto = new BlogDto(blog);
     //sending response
-    res.status(200).json({ blogDto, auth: true });
+    res.status(200).json({ blog: blogDto, auth: true });
   },
   //update blog
   async update(req, res, next) {
@@ -104,7 +104,7 @@ const blogController = {
     const { content, title, photopath, blogId, author } = req.body;
 
     try {
-      const blog = await Blog.findOne({ _id: blogId, authorId: author });
+      const blog = await Blog.findOne({ _id: blogId });
       if (photopath) {
         let previous = blog.photopath;
         previous = previous.split("/").at(-1);
@@ -122,16 +122,19 @@ const blogController = {
 
         //update database
         try {
-          await Blog.updateOne({
-            content,
-            title,
-            photopath: `${BACKEND_SERVER_PATH}/storage/${imagePath}`,
-          });
+          await Blog.updateOne(
+            { _id: blogId },
+            {
+              content,
+              title,
+              photopath: `${BACKEND_SERVER_PATH}/storage/${imagePath}`,
+            }
+          );
         } catch (error) {
           return next(error);
         }
       } else {
-        await Blog.updateOne({ content, title });
+        await Blog.updateOne({ _id: blogId }, { content, title });
       }
     } catch (error) {
       return next(error);

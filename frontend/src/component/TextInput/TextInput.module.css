@@ -1,0 +1,22 @@
+.textinput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.textinput input{
+    outline: none;
+    border: 0.5px gray solid;
+    height: 2rem;
+    width: 14rem;
+    border-radius: 15px;
+    color: gray;
+    font-size: 16px;
+    padding: 0rem 1rem;
+}
+
+.textinput p{
+    color: red;
+    font-size: 1rem;
+}

@@ -1,0 +1,54 @@
+.signupmain{
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+ 
+ }
+ .card{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     background-color: azure;
+     width: 30%;
+     height: 90vh;
+     padding: 0rem 2rem;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+     border-radius: 15px;
+ 
+ }
+ .card > *{
+     margin: 1rem 0rem;
+ }
+ 
+ 
+  .signup{
+     padding: 0.5rem 1.2rem;
+     outline: none;
+     background-color: green;
+     color: white;
+     border-radius: 15px;
+     border: 1px white solid;
+     cursor: pointer;
+ }
+  .signup:hover{
+     background-color: black;
+     color: white;
+ }
+ 
+ 
+  .login{
+     padding: 0.5rem 1.2rem;
+     outline: none;
+     background-color: blue;
+     color: white;
+     border-radius: 15px;
+     border: 1px white solid;
+     cursor: pointer;
+ }
+  .login:hover{
+     background-color: black;
+     color: white;
+ }
